@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Profile;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,8 +40,14 @@ class User extends Authenticatable
     ];
 
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
+    }
+
+
     public function profile()
     {
-        return $this->hasOne(Profile::class)
+        return $this->hasOne(Profile::class);
     }
 }
