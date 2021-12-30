@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Intervention\Image\Facades\Image;
 
+use App\Post;
+
 class PostsController extends Controller
 {
     public  function __construct()
@@ -20,11 +22,18 @@ class PostsController extends Controller
     }
 
 
+    public function show(Post $post)
+    {
+
+        return view('posts.show', compact('post'));
+    }
+
+
     public function store()
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => 'required|image'
+            'image' => 'required'
         ]);
 
         // store image
