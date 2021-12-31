@@ -33,7 +33,7 @@ class ProfilesController extends Controller
            'image' => ''
         ]);
 
-        $imagePath = "";
+        $imagePath = auth()->user()->profile->profileImage();
         if(request('image')) {
             $imagePath = request('image')->store('profile', 'public');
 

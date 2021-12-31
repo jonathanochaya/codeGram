@@ -21,4 +21,10 @@ class Profile extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+
+    public function profileImage()
+    {
+        return $this->image ? $this->image : 'profile/RbKBWduOjV5fpwFb7AGCmlShhIYfWtDz0Y5V0reJ.png';
+    }
 }
