@@ -23,6 +23,12 @@ class Profile extends Model
     }
 
 
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+
     public function profileImage()
     {
         return $this->image ? $this->image : 'profile/RbKBWduOjV5fpwFb7AGCmlShhIYfWtDz0Y5V0reJ.png';
